@@ -3,6 +3,9 @@ class Turn {
     this.guess = userGuess,
     this.card = cardDetails
   }
+  returnGuess() {
+    return this.guess
+  }
 }
 
 

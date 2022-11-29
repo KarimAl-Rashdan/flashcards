@@ -31,4 +31,9 @@ describe('Turn', function() {
   it('should store current Card in play', () => {
     expect(turn1.card).to.equal(card1)
   })
+
+  it('should return user/s guess', () => {
+    turn1.returnGuess();
+    expect(turn1.returnGuess).to.equal("array")
+  })
 })
