@@ -12,13 +12,19 @@ describe('Turn', function() {
   let card3 = new Card(16, "What does the callback function for reduce() return?", ["the accumulator", "the current element", "the initializer"], "the accumulator");
   let card4 = new Card(30, "What type of methods are functions that allow you to manipulate the value of a particular data type or class?", ["prototype method", "object", "callback function"], "prototype method");
   beforeEach(() => {
-    turn1 = new Turn();
+    turn1 = new Turn('array');
   })
 
   it('should be a function', () => {
     expect(Turn).to.be.a('function');
   });
+
   it('should be an instance of Turn', () => {
     expect(turn1).to.be.an.instanceof(Turn)
+  });
+
+  it('should store user/s guess', () => {
+    console.log(turn1)
+    expect(turn1.guess).to.equal("array")
   })
 })
