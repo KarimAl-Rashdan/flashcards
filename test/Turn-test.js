@@ -14,7 +14,11 @@ describe('Turn', function() {
   beforeEach(() => {
     turn1 = new Turn();
   })
+
   it('should be a function', () => {
     expect(Turn).to.be.a('function');
+  });
+  it('should be an instance of Turn', () => {
+    expect(turn1).to.be.an.instanceof(Turn)
   })
 })
