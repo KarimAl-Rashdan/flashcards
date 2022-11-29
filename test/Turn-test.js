@@ -12,7 +12,7 @@ describe('Turn', function() {
   let card3 = new Card(16, "What does the callback function for reduce() return?", ["the accumulator", "the current element", "the initializer"], "the accumulator");
   let card4 = new Card(30, "What type of methods are functions that allow you to manipulate the value of a particular data type or class?", ["prototype method", "object", "callback function"], "prototype method");
   beforeEach(() => {
-    turn1 = new Turn('array');
+    turn1 = new Turn('array', card1);
   })
 
   it('should be a function', () => {
@@ -26,5 +26,9 @@ describe('Turn', function() {
   it('should store user/s guess', () => {
     console.log(turn1)
     expect(turn1.guess).to.equal("array")
+  });
+
+  it('should store current Card in play', () => {
+    expect(turn1.card).to.equal(card1)
   })
 })
