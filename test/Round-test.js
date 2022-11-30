@@ -23,4 +23,7 @@ describe('Round', () => {
   it('should be a function', () => {
     expect(Round).to.be.a('function')
   })
+  it('should store a deck', () => {
+    expect(round1.deck).to.equal(deck1)
+  })
 })
