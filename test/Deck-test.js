@@ -38,6 +38,7 @@ beforeEach(() => {
  })
  it('should know how many cards are in deck', () => {
   expect(deck1.countCards()).to.equal(3)
+  expect(deck2.countCards()).to.equal(1)
  })
 })
 /*Your Deck class should be initialized with an array of Card objects and should have an accompanying test file. It should know how many Cards are in the Deck. */
