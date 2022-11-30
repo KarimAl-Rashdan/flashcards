@@ -20,10 +20,19 @@ describe('Round', () => {
   beforeEach(() => {
     round1 = new Round(deck1)
   })
+
   it('should be a function', () => {
     expect(Round).to.be.a('function')
   })
+
   it('should store a deck', () => {
-    expect(round1.deck).to.equal(deck1)
+    // console.log('this is round1.deck', round1.deck.listOfCards)
+    expect(round1.deck).to.equal(deck1.listOfCards)
   })
+
+  it('should return current card', () => {
+    console.log(allCards[0])
+    expect(returnCurrentCard()).to.equal(allCards[0])
+  })
+
 })
