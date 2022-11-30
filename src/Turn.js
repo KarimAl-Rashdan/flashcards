@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+//get rid of at end of project-----☝🏽
 class Turn {
   constructor(userGuess, cardDetails) {
     this.guess = userGuess,
