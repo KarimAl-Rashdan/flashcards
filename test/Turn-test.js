@@ -20,7 +20,7 @@ describe('Turn', function() {
   })
   beforeEach(() => {
     turn1 = new Turn('array', allCards[0]);
-    console.log("this is turn1", turn1)
+    // console.log("this is turn1", turn1)
   })
 
   it('should be a function', () => {
