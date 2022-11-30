@@ -13,12 +13,12 @@ class Turn {
     return this.card
   }
   evaluateGuess() {
-    console.log(this.card['correctAnswer'])
+    // console.log(this.card['correctAnswer'])
     if (this.guess === this.card['correctAnswer']) {
-      console.log(true)
+      // console.log(true)
       return true
     } else {
-      console.log(false)
+      // console.log(false)
       return false
     }
   }
