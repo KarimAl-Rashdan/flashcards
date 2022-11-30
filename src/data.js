@@ -1,5 +1,4 @@
 /* eslint-disable */
-//make new js test file, have 5 or 6 questions, link this file in your tests
 const prototypeData = [{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",
