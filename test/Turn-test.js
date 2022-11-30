@@ -1,16 +1,20 @@
 /* eslint-disable max-len */
 const chai = require('chai');
 const expect = chai.expect;
-const data = require('../src/data') //change
 
+const data = require('../src/data-samples')
+const protoTypeSampleQuestions = data.prototypeSampleData
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Turn', function() {
   
   let turn1;
-  let allCards = data.map((card) => { 
+
+  console.log('this is datatype', typeof(protoTypeSampleQuestions))
+  let allCards = protoTypeSampleQuestions.map(card => { 
     return new Card(card.id, card.question, card.answers, card.correctAnswer)
+    
   })
   /* beforeEach wipes the slate clean between each test and consolidate code, use for clearing score
   let card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
@@ -19,6 +23,7 @@ describe('Turn', function() {
   let card4 = new Card(30, "What type of methods are functions that allow you to manipulate the value of a particular data type or class?", ["prototype method", "object", "callback function"], "prototype method"); */
   beforeEach(() => {
     turn1 = new Turn('array', allCards[0]);
+    console.log("this is turn1", turn1)
   })
 
   it('should be a function', () => {
@@ -35,11 +40,12 @@ describe('Turn', function() {
   });
 
   it('should store current Card in play', () => {
-    expect(turn1.card).to.equal(card1)
+    expect(turn1.card).to.equal(allCards[0])
   })
 
   it('should return user/s guess', () => {
     // turn1.returnGuess();
+    // console.log('this is card', cards)
     expect(turn1.returnGuess()).to.equal("array")
   })
 })
