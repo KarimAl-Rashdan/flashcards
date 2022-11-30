@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -13,6 +12,7 @@ describe('Turn', function() {
   let allCards = protoTypeSampleCards.map(card => { 
     return new Card(card.id, card.question, card.answers, card.correctAnswer)
   })
+
   beforeEach(() => {
     turn1 = new Turn('array', allCards[0]);
     turn2 = new Turn('iteration method', allCards[1])
@@ -52,5 +52,4 @@ describe('Turn', function() {
     expect(turn1.giveFeedback()).to.equal('incorrect!')
     expect(turn2.giveFeedback()).to.equal('correct!')
   })
-
 })
