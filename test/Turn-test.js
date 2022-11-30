@@ -45,6 +45,7 @@ describe('Turn', function() {
     // turn1.returnGuess();
     // console.log('this is card', cards)
     expect(turn1.returnGuess()).to.equal("array")
+    expect(turn2.returnGuess()).to.equal('iteration method')
   })
 
   it('should return Card in play', () => {
