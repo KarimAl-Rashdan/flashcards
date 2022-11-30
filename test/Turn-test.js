@@ -20,6 +20,7 @@ describe('Turn', function() {
   })
   beforeEach(() => {
     turn1 = new Turn('array', allCards[0]);
+    turn2 = new Turn('iteration method', allCards[1])
     // console.log("this is turn1", turn1)
   })
 
@@ -52,9 +53,13 @@ describe('Turn', function() {
 
   it('should check if user/s guess matches correct answer', () => {
     expect(turn1.evaluateGuess()).to.equal(false)
-    turn2 = new Turn('iteration method', allCards[1])
 
     expect(turn2.evaluateGuess()).to.equal(true)
   })
-  /*evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card */
+
+  it('should give the user feedback', () => {
+    expect(turn1.giveFeedback()).to.equal('incorrect!')
+    expect(turn2.giveFeedback()).to.equal('correct!')
+  })
+  /*giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.*/
 })
