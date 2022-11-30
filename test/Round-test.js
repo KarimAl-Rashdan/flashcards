@@ -18,7 +18,7 @@ describe('Round', () => {
 
 
   beforeEach(() => {
-    round1 = new Round()
+    round1 = new Round(deck1)
   })
   it('should be a function', () => {
     expect(Round).to.be.a('function')
