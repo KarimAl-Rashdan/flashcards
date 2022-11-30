@@ -4,6 +4,7 @@ class Turn {
     this.card = cardDetails
   }
   returnGuess() {
+    console.log(this.guess);
     return this.guess
   }
 }

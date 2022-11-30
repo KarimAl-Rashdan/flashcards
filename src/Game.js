@@ -16,3 +16,5 @@ class Game {
 }
 
 module.exports = Game;
+
+//game.start should be made of a bunch of helper methods, test the helper methods instead of Game.start
