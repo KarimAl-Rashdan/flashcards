@@ -2,14 +2,14 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const data = require('../src/data-samples')
-const protoTypeSampleQuestions = data.prototypeSampleData
+const protoTypeSampleCards = data.prototypeSampleData
 const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Turn', function() {
   let turn1;
   let turn2;
-  let allCards = protoTypeSampleQuestions.map(card => { 
+  let allCards = protoTypeSampleCards.map(card => { 
     return new Card(card.id, card.question, card.answers, card.correctAnswer)
   })
 
