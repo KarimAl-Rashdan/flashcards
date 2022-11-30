@@ -33,7 +33,11 @@ beforeEach(() => {
 
  it('should store an array of cards', () => {
   expect(deck1.listOfCards).to.eql([allCards[0], allCards[1], allCards[2]])
+  expect(deck2.listOfCards).to.eql([allCards[2]])
   expect(deck1.listOfCards).to.be.an('array')
+ })
+ it('should know how many cards are in deck', () => {
+  expect(deck1.countCards()).to.equal(3)
  })
 })
 /*Your Deck class should be initialized with an array of Card objects and should have an accompanying test file. It should know how many Cards are in the Deck. */
