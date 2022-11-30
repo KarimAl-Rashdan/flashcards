@@ -7,4 +7,5 @@ class Deck {
     return this.listOfCards.length
   }
 }
+
 module.exports = Deck

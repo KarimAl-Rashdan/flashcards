@@ -1,5 +1,4 @@
 /* eslint-disable */
-/* eslint-disable max-len */
 const prototypeSampleData = [{
   "id": 1,
   "question": "What allows you to define a set of related information using key-value pairs?",

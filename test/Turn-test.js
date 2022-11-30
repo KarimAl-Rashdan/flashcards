@@ -1,7 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable no-console */
-/* beforeEach wipes the slate clean between each test and consolidate code, use for clearing score
- */
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -11,17 +8,14 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 describe('Turn', function() {
-  
   let turn1;
   let turn2;
   let allCards = protoTypeSampleCards.map(card => { 
     return new Card(card.id, card.question, card.answers, card.correctAnswer)
-    
   })
   beforeEach(() => {
     turn1 = new Turn('array', allCards[0]);
     turn2 = new Turn('iteration method', allCards[1])
-    // console.log("this is turn1", turn1)
   })
 
   it('should be a function', () => {
@@ -33,7 +27,6 @@ describe('Turn', function() {
   });
 
   it('should store user/s guess', () => {
-    // console.log(turn1)
     expect(turn1.guess).to.equal("array")
   });
 
@@ -42,8 +35,6 @@ describe('Turn', function() {
   })
 
   it('should return user/s guess', () => {
-    // turn1.returnGuess();
-    // console.log('this is card', cards)
     expect(turn1.returnGuess()).to.equal("array")
     expect(turn2.returnGuess()).to.equal('iteration method')
   })
@@ -54,7 +45,6 @@ describe('Turn', function() {
 
   it('should check if user/s guess matches correct answer', () => {
     expect(turn1.evaluateGuess()).to.equal(false)
-
     expect(turn2.evaluateGuess()).to.equal(true)
   })
 
@@ -62,5 +52,5 @@ describe('Turn', function() {
     expect(turn1.giveFeedback()).to.equal('incorrect!')
     expect(turn2.giveFeedback()).to.equal('correct!')
   })
-  /*giveFeedback - method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.*/
+
 })
