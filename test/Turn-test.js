@@ -13,6 +13,7 @@ const Turn = require('../src/Turn');
 describe('Turn', function() {
   
   let turn1;
+  let turn2;
   let allCards = protoTypeSampleQuestions.map(card => { 
     return new Card(card.id, card.question, card.answers, card.correctAnswer)
     
@@ -48,4 +49,12 @@ describe('Turn', function() {
   it('should return Card in play', () => {
     expect(turn1.returnCard()).to.equal(allCards[0])
   })
+
+  it('should check if user/s guess matches correct answer', () => {
+    expect(turn1.evaluateGuess()).to.equal(false)
+    turn2 = new Turn('iteration method', allCards[1])
+
+    expect(turn2.evaluateGuess()).to.equal(true)
+  })
+  /*evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card */
 })
