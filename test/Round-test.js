@@ -16,10 +16,18 @@ describe('Round', () => {
   let round1;
   let deck1 = new Deck([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4], allCards[5]])
   let turn1 = new Turn('array', allCards[0]) //incorrect
-  let turn2 = new Turn('object', allCards[0]) //correct
+  let turn2 = new Turn('object', allCards[0]) 
+  //correct
   let turn3 = new Turn('iteration method', allCards[1]) //correct
   let turn4 = new Turn('forEach()', allCards[2]) //incorrect
-
+  let turn5 = new Turn('true', allCards[3]) 
+  //correct
+  let turn6 = new Turn('mutator method', allCards[4]) 
+  //correct
+  let turn7 = new Turn('prototype method', allCards[5]) 
+  //correct
+//INCORRECT 2
+//CORRECT 4
 
   beforeEach(() => {
     round1 = new Round(deck1)
@@ -70,5 +78,21 @@ describe('Round', () => {
     expect(round1.incorrectGuesses).to.eql([turn1.card.id])
     round1.takeTurn(turn4.guess)
     expect(round1.incorrectGuesses).to.eql([turn1.card.id, turn4.card.id])
+  })
+
+  it('should calculate the percentage of correct guesses', () => {
+    round1.takeTurn(turn1.guess)
+    // expect(round1.incorrectGuesses).to.eql([turn1.card.id])
+    round1.takeTurn(turn3.guess)
+    // expect(round1.incorrectGuesses).to.eql([turn1.card.id])
+    round1.takeTurn(turn4.guess)
+    // expect(round1.incorrectGuesses).to.eql([turn1.card.id, turn4.card.id])
+    round1.takeTurn(turn5.guess)
+    round1.takeTurn(turn6.guess)
+    round1.takeTurn(turn7.guess)
+    // console.log('incorrect guesses:', round1.incorrectGuesses)
+    // console.log('correct guesses:', round1.correctGuesses)
+    // console.log('deck length', round1.deck.length)
+    expect(round1.calculatePercentCorrect()).to.equal('67%')
   })
 })
