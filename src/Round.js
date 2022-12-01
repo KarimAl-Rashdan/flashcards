@@ -1,3 +1,5 @@
+const Turn = require("./Turn")
+
 /* eslint-disable */
 class Round {
   constructor(deck) {
@@ -8,6 +10,11 @@ class Round {
   }
   returnCurrentCard() {
     return this.currentCards
+  }
+  takeTurn(userGuess) {
+    this.turns += 1
+    let newTurn = new Turn(userGuess, this.currentCards)
+    return newTurn.giveFeedback()
   }
 }
 
