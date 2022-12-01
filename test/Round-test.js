@@ -17,7 +17,7 @@ describe('Round', () => {
   let deck1 = new Deck([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4], allCards[5]])
   let turn1 = new Turn('array', allCards[0]) //incorrect
   let turn2 = new Turn('object', allCards[0]) //correct
-  // let turn3 = new Turn('iteration method', allCards[1]) //correct
+  let turn3 = new Turn('iteration method', allCards[1]) //correct
 
 
   beforeEach(() => {
@@ -66,9 +66,17 @@ describe('Round', () => {
 } */
     // console.log(round1.currentCard)
     round1.takeTurn(turn1.guess)
-    console.log('current card is:', round1.currentCard)
-    console.log('turns is:', round1.turns)
+    // console.log('current card is:', round1.currentCard)
+    // console.log('turns is:', round1.turns)
     expect(round1.currentCard).to.equal(allCards[1])
+    round1.takeTurn(turn3.guess)
+    // console.log('current card is:', round1.currentCard)
+    // console.log('turns is:', round1.turns)
+    expect(round1.currentCard).to.equal(allCards[2])
+  })
+  it('should give feedback to user guess', () => {
+    let firstTurn = round1.takeTurn(turn1.guess)
+    expect(firstTurn).to.equal('incorrect!')
   })
 
   

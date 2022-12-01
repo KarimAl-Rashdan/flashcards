@@ -16,7 +16,7 @@ class Round {
     console.log(newTurn)
     this.turns += 1
     this.currentCard = this.deck[this.turns]
-    console.log('does this read properly', this.currentCard)
+    // console.log('does this read properly', this.currentCard)
     // //use method on deck to take out first element so when cards are done it ends game
     // newTurn.giveFeedback()
   }
