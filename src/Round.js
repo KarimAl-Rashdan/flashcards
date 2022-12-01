@@ -13,10 +13,10 @@ class Round {
   }
   takeTurn(userGuess) {
     let newTurn = new Turn(userGuess, this.currentCard)
-    // console.log(newTurn)
+    let feedback = newTurn.giveFeedback()
+    console.log('value', feedback.valueOf())
     this.turns += 1
     this.currentCard = this.deck[this.turns]
-    let feedback = newTurn.giveFeedback()
     return feedback
     // console.log('feedback is:', feedback)
     // console.log('does this read properly', this.currentCard)

@@ -18,6 +18,7 @@ describe('Round', () => {
   let turn1 = new Turn('array', allCards[0]) //incorrect
   let turn2 = new Turn('object', allCards[0]) //correct
   let turn3 = new Turn('iteration method', allCards[1]) //correct
+  let turn4 = new Turn('forEach()', allCards[2]) //incorrect
 
 
   beforeEach(() => {
@@ -74,12 +75,21 @@ describe('Round', () => {
     // console.log('turns is:', round1.turns)
     expect(round1.currentCard).to.equal(allCards[2])
   })
+  
   it('should give feedback to user guess', () => {
     let firstTurn = round1.takeTurn(turn1.guess)
     expect(firstTurn).to.equal('incorrect!')
     expect(round1.takeTurn(turn3.guess)).to.equal('correct!')
   })
 
+  it('should store the current card id for the incorrect guesses', () => {
+    round1.takeTurn(turn1.guess)
+    expect(round1.incorrectGuesses).to.eql(turn1.card.id)
+    round1.takeTurn(turn3.guess)
+    expect(round1.incorrectGuesses).to.eql(turn1.card.id)
+    round1.takeTurn(turn4.guess)
+    expect(round1.incorrectGuesses).to.eql([turn1.card.id, turn4.card.id])
+  })
   
 
   // it('should instantiate a new Turn', () => {
