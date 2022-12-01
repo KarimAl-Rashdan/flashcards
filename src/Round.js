@@ -14,7 +14,7 @@ class Round {
     return this.currentCard
   }
   takeTurn(userGuess) {
-    let newTurn = new Turn(userGuess, this.currentCard)
+    let newTurn = new Turn(userGuess, this.returnCurrentCard())
     let feedback = newTurn.giveFeedback()
     if(feedback.valueOf() === 'incorrect!') {
       this.incorrectGuesses.push(newTurn.card.id)
@@ -38,11 +38,8 @@ class Round {
   }
   endRound() {
     let percentage = this.calculatePercentCorrect()
-    // console.log(this.turns)
     return `** Round over! ** You answered ${percentage} of the questions correctly!`
   }
 }
-// calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
-//endRound: method that prints the following to the console: ‘** Round over! ** You answered <>% of the questions correctly!’
 
 module.exports = Round

@@ -43,6 +43,10 @@ describe('Round', () => {
 
   it('should return current card', () => {
     expect(round1.returnCurrentCard()).to.equal(allCards[0])
+    round1.takeTurn(turn1.guess)
+    round1.takeTurn(turn3.guess)
+    round1.takeTurn(turn4.guess)
+    expect(round1.returnCurrentCard()).to.equal(allCards[3])
   })
 
   it('should start off with zero turns', () => {
@@ -78,7 +82,6 @@ describe('Round', () => {
     expect(round1.incorrectGuesses).to.eql([turn1.card.id])
     round1.takeTurn(turn4.guess)
     expect(round1.incorrectGuesses).to.eql([turn1.card.id, turn4.card.id])
-    console.log('turrrnns', round1.turns)
   })
 
   it('should calculate the percentage of correct guesses', () => {
@@ -105,7 +108,6 @@ describe('Round', () => {
     round1.takeTurn(turn6.guess)
     round1.takeTurn(turn7.guess)
     round1.calculatePercentCorrect()
-    // console.log('turn number', round1.deck.length)
     expect(round1.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
   })
 })
