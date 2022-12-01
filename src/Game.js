@@ -4,6 +4,7 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Card = require('../src/Card');
 const Deck = require('./Deck');
+const Round = require('./Round');
 
 class Game {
   constructor(round) {
@@ -19,6 +20,10 @@ class Game {
     let newDeck = new Deck(this.createCards())
     console.log(newDeck)
     return newDeck
+  }
+  createRound() {
+    let newRound = new Round(this.createDeck())
+    return newRound
   }
 
   printMessage(deck, round) {

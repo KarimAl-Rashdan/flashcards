@@ -57,8 +57,8 @@ describe('Game', () => {
   })
 
   it('should create new round using the deck', () => {
-    expect(game1.createRound(deck1)).to.equal(round1)
-  })
+  //   expect(game1.createRound(deck1)).to.equal(round1)
+  // })
 })
 
 
