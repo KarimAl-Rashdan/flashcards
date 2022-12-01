@@ -95,4 +95,15 @@ describe('Round', () => {
     // console.log('deck length', round1.deck.length)
     expect(round1.calculatePercentCorrect()).to.equal('67%')
   })
+  it('should tell user when round is over', () => {
+
+    round1.takeTurn(turn1.guess)
+    round1.takeTurn(turn3.guess)
+    round1.takeTurn(turn4.guess)
+    round1.takeTurn(turn5.guess)
+    round1.takeTurn(turn6.guess)
+    round1.takeTurn(turn7.guess)
+    round1.calculatePercentCorrect()
+    expect(round1.endRound()).to.equal('** Round over! ** you answered 67% of the questions correctly!')
+  })
 })
