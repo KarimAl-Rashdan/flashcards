@@ -10,6 +10,11 @@ class Game {
   constructor(round) {
     this.currentRound = round
   }
+  start() {
+    this.createCards
+    this.createDeck()
+    this.createRound()
+  }
   createCards() {
     let allCards = prototypeQuestions.map(card => {
       return new Card(card.id, card.question, card.answers, card.correctAnswer)
