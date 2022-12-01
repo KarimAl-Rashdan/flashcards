@@ -13,9 +13,12 @@ class Round {
   }
   takeTurn(userGuess) {
     let newTurn = new Turn(userGuess, this.currentCard)
-    console.log(newTurn)
+    // console.log(newTurn)
     this.turns += 1
     this.currentCard = this.deck[this.turns]
+    let feedback = newTurn.giveFeedback()
+    return feedback
+    // console.log('feedback is:', feedback)
     // console.log('does this read properly', this.currentCard)
     // //use method on deck to take out first element so when cards are done it ends game
     // newTurn.giveFeedback()

@@ -77,6 +77,7 @@ describe('Round', () => {
   it('should give feedback to user guess', () => {
     let firstTurn = round1.takeTurn(turn1.guess)
     expect(firstTurn).to.equal('incorrect!')
+    expect(round1.takeTurn(turn3.guess)).to.equal('correct!')
   })
 
   
