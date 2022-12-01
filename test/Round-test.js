@@ -41,7 +41,7 @@ describe('Round', () => {
   })
 
   it('should store incorrect guesses in an array', () => {
-    // console.log(typeof(round1.incorrectGuesses))
-    expect(round1.incorrectGuesses).to.equal([])
+    console.log(typeof(round1.incorrectGuesses))
+    expect(round1.incorrectGuesses).to.eql([])
   })
 })
