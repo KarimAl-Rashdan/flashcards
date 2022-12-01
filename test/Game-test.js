@@ -55,6 +55,10 @@ describe('Game', () => {
     // expect(game1.createDeck()).to.equal(deck1)
     //testing isnt working because im noot working with full data array
   })
+
+  it('should create new round using the deck', () => {
+    expect(game1.createRound(deck1)).to.equal(round1)
+  })
 })
 
 
@@ -67,7 +71,7 @@ describe('Game', () => {
 ~~~~~~~~~~~~~~~~~~Should keep track of the currentRound
 start: method that starts everything
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Creates Cards
-Puts Cards in a Deck
+~~~~~~~~~~~~~~~~~~~~`Puts Cards in a Deck
 Creates a new Round using the Deck
 invokes printMessage to display the message in the CLI
 invokes printQuestion to kick off our helper functions that allow interaction via the CLI

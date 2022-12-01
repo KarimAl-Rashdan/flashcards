@@ -17,6 +17,7 @@ class Game {
   }
   createDeck() {
     let newDeck = new Deck(this.createCards())
+    console.log(newDeck)
     return newDeck
   }
 
