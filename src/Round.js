@@ -21,8 +21,12 @@ class Round {
     } else if(feedback.valueOf() === 'correct!') {
       this.correctGuesses.push(newTurn.card.id)
     }
-    this.turns += 1
-    this.currentCard = this.deck[this.turns]
+    if(this.turns === this.deck.length - 1) {
+      this.endRound()
+    } else if(this.turns !== this.deck.length - 1) {
+      this.turns += 1
+      this.currentCard = this.deck[this.turns]
+    }
     return feedback
   }
   calculatePercentCorrect() {
@@ -31,6 +35,11 @@ class Round {
   let deck1Length = deck1.countCards()
   let percentage = correctGuessLength / deck1Length * 100
   return `${percentage.toFixed(0)}%`
+  }
+  endRound() {
+    let percentage = this.calculatePercentCorrect()
+    // console.log(this.turns)
+    return `** Round over! ** You answered ${percentage} of the questions correctly!`
   }
 }
 // calculatePercentCorrect: method that calculates and returns the percentage of correct guesses
