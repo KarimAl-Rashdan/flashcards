@@ -85,13 +85,13 @@ describe('Round', () => {
   it('should store the current card id for the incorrect guesses', () => {
     round1.takeTurn(turn1.guess)
     expect(round1.incorrectGuesses).to.eql([turn1.card.id])
-    console.log('1 incorrect guess', round1.incorrectGuesses)
+    console.log('1 incorrect guess', round1.incorrectGuesses, round1.currentCard)
     round1.takeTurn(turn3.guess)
     expect(round1.incorrectGuesses).to.eql([turn1.card.id])
-    console.log('2 incorrect guess', round1.incorrectGuesses)
+    console.log('2 incorrect guess', round1.incorrectGuesses, round1.currentCard)
     round1.takeTurn(turn4.guess)
     expect(round1.incorrectGuesses).to.eql([turn1.card.id, turn4.card.id])
-    console.log('3 incorrect guess', round1.incorrectGuesses)
+    console.log('3 incorrect guess', round1.incorrectGuesses, round1.currentCard, round1.turns)
   })
   
 
