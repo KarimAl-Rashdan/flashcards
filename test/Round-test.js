@@ -32,8 +32,12 @@ describe('Round', () => {
   })
 
   it('should return current card', () => {
-    console.log(round1.currentCards)
+    // console.log('this is round1.currentCards', round1.currentCards)
     expect(round1.returnCurrentCard()).to.equal(allCards[0])
+  })
+
+  it('should start off with zero turns', () => {
+    expect(round1.turns).to.equal(0)
   })
 
 })
