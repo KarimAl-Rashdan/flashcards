@@ -22,7 +22,7 @@ describe('Card', function() {
   });  
 
   it('should store a list of possible answers', function() {
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    expect(card.answers).to.eql(['object', 'array', 'function']);
   });  
 
   it('should store the correct answer', function() {
