@@ -15,7 +15,9 @@ describe('Round', () => {
   })
   let round1;
   let deck1 = new Deck([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4], allCards[5]])
-  let deck2;
+  let turn1 = new Turn('array', allCards[0])
+  let turn2 = new Turn('mutator method', allCards[1])
+  let turn3 = new Turn('iteration method', allCards[1])
 
 
   beforeEach(() => {
@@ -44,4 +46,12 @@ describe('Round', () => {
     console.log(typeof(round1.incorrectGuesses))
     expect(round1.incorrectGuesses).to.eql([])
   })
+
+  it('should give feedback for user guesses', () => {
+    expect(round1.takeTurn(turn1.guess)).to.equal(turn1.giveFeedback())
+  })
+  
 })
+/*round.takeTurn('sea otter'); // => 'correct!'
+
+round.takeTurn('spleen');   // => 'incorrect!' */
