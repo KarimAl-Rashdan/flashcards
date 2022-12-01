@@ -16,10 +16,12 @@ describe('Round', () => {
   let round1;
   let deck1 = new Deck([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4], allCards[5]])
   let turn1 = new Turn('array', allCards[0]) //incorrect
-  let turn2 = new Turn('object', allCards[0]) //correct
+  let turn2 = new Turn('object', allCards[0]) 
   let turn3 = new Turn('iteration method', allCards[1]) //correct
   let turn4 = new Turn('forEach()', allCards[2]) //incorrect
-
+  let turn5 = new Turn('true', allCards[3]) 
+  let turn6 = new Turn('mutator method', allCards[4]) 
+  let turn7 = new Turn('prototype method', allCards[5]) 
 
   beforeEach(() => {
     round1 = new Round(deck1)
@@ -35,6 +37,10 @@ describe('Round', () => {
 
   it('should return current card', () => {
     expect(round1.returnCurrentCard()).to.equal(allCards[0])
+    round1.takeTurn(turn1.guess)
+    round1.takeTurn(turn3.guess)
+    round1.takeTurn(turn4.guess)
+    expect(round1.returnCurrentCard()).to.equal(allCards[3])
   })
 
   it('should start off with zero turns', () => {
@@ -62,7 +68,7 @@ describe('Round', () => {
     expect(firstTurn).to.equal('incorrect!')
     expect(round1.takeTurn(turn3.guess)).to.equal('correct!')
   })
-
+  
   it('should store the current card id for the incorrect guesses', () => {
     round1.takeTurn(turn1.guess)
     expect(round1.incorrectGuesses).to.eql([turn1.card.id])
@@ -70,5 +76,25 @@ describe('Round', () => {
     expect(round1.incorrectGuesses).to.eql([turn1.card.id])
     round1.takeTurn(turn4.guess)
     expect(round1.incorrectGuesses).to.eql([turn1.card.id, turn4.card.id])
+  })
+
+  it('should calculate the percentage of correct guesses', () => {
+    round1.takeTurn(turn1.guess)
+    round1.takeTurn(turn3.guess)
+    round1.takeTurn(turn4.guess)
+    round1.takeTurn(turn5.guess)
+    round1.takeTurn(turn6.guess)
+    round1.takeTurn(turn7.guess)
+    expect(round1.calculatePercentCorrect()).to.equal('67%')
+  })
+  it('should tell user when round is over', () => {
+    round1.takeTurn(turn1.guess)
+    round1.takeTurn(turn3.guess)
+    round1.takeTurn(turn4.guess)
+    round1.takeTurn(turn5.guess)
+    round1.takeTurn(turn6.guess)
+    round1.takeTurn(turn7.guess)
+    round1.calculatePercentCorrect()
+    expect(round1.endRound()).to.equal('** Round over! ** You answered 67% of the questions correctly!')
   })
 })
