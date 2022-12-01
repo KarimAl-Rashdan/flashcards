@@ -22,7 +22,10 @@ class Game {
     return newDeck
   }
   createRound() {
-    let newRound = new Round(this.createDeck())
+    let newDeck = this.createDeck()
+    let newRound = new Round(newDeck)
+    this.printMessage(newDeck, newRound)
+    this.printQuestion(newRound)
     return newRound
   }
 
