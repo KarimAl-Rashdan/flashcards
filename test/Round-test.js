@@ -45,19 +45,45 @@ describe('Round', () => {
   it('should store incorrect guesses in an array', () => {
     expect(round1.incorrectGuesses).to.eql([])
   })
-
-  it('should give feedback for user guesses', () => {
-    expect(round1.takeTurn(turn1.guess)).to.equal(turn1.giveFeedback())
-    expect(round1.takeTurn(turn2.guess)).to.equal(turn2.giveFeedback())
-    console.log(turn1.giveFeedback(), turn2.giveFeedback())
-  })
-
   it('should increase turns when user takes turn', () => {
     round1.takeTurn(turn1.guess)
     round1.takeTurn(turn2.guess)
     expect(round1.turns).to.equal(2)
-    console.log(round1.turns)
+    // console.log(round1.turns)
   })
+
+  it('should change current card to the next card in the deck', () => {
+    /*{
+  "id": 1,
+  "question": "What allows you to define a set of related information using key-value pairs?",
+  "answers": ["object", "array", "function"],
+  "correctAnswer": "object"
+}, {
+  "id": 5,
+  "question": "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?",
+  "answers": ["mutator method", "accessor method", "iteration method"],
+  "correctAnswer": "iteration method"
+} */
+    // console.log(round1.currentCard)
+    round1.takeTurn(turn1.guess)
+    console.log('current card is:', round1.currentCard)
+    console.log('turns is:', round1.turns)
+    expect(round1.currentCard).to.equal(allCards[1])
+  })
+
+  
+
+  // it('should instantiate a new Turn', () => {
+  //   let turn = round1.takeTurn(turn1.guess)
+  //   expect(turn).to.be.an.instanceof(Turn)
+  // }) I don't know how to check this so I'll research and get back to it later
+
+  // it('should give feedback for user guesses', () => {
+  //   expect(round1.takeTurn(turn1.guess)).to.equal(turn1.giveFeedback())
+  //   expect(round1.takeTurn(turn2.guess)).to.equal(turn2.giveFeedback())
+  //   console.log(turn1.giveFeedback(), turn2.giveFeedback())
+  // })
+
   
 })
 /*round.takeTurn('sea otter'); // => 'correct!'
