@@ -7,6 +7,7 @@ const prototypeSampleCards = data.prototypeSampleData
 const Card = require('../src/Card')
 const Deck = require('../src/Deck')
 const Round = require('../src/Round')
+const Turn = require('../src/Turn')
 
 describe('Round', () => {
   let allCards = prototypeSampleCards.map(card => {
@@ -31,8 +32,8 @@ describe('Round', () => {
   })
 
   it('should return current card', () => {
-    console.log(allCards[0])
-    expect(returnCurrentCard()).to.equal(allCards[0])
+    console.log(round1.currentCards)
+    expect(round1.returnCurrentCard()).to.equal(allCards[0])
   })
 
 })

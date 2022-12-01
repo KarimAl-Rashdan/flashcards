@@ -2,6 +2,10 @@
 class Round {
   constructor(deck) {
   this.deck = deck.listOfCards
+  this.currentCards = deck.listOfCards[0]
+  }
+  returnCurrentCard() {
+    return this.currentCards
   }
 }
 
