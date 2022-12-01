@@ -13,46 +13,47 @@ const Turn = require('../src/Turn')
 const Game = require('../src/Game')
 
 describe('Game', () => {
-  let allCards = prototypeSampleCards.map(card => {
-    return new Card(card.id, card.question, card.answers, card.correctAnswer)
-  })
   // let allCards = prototypeQuestions.map(card => {
-  //   return new Card(card.id, card.question, card.answers, card.correctAnswer)
-  // })
-  let game1;
-  let deck1 = new Deck ([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4],allCards[5]]);
-  let round1;
-  // let turn1;
-  // let turn2;
-  // let turn3;
-  // let turn4;
-  // let turn5;
-  // let turn6;
-  beforeEach(() => {
-    round1 = new Round(deck1)
-    // console.log(round1)
-    game1 = new Game(round1)
-  })
-
-  it('should be a function', () => {
-    expect(Game).to.be.a('function')
-  })
-
-  it('should keep track of currentRound', () => {
-    // console.log(round1)
-    expect(game1.currentRound).to.equal(round1)
-  })
-
-  it('should instantiate a new card', () => {
-    // let allCards = prototypeSampleCards.map(card => {
     //   return new Card(card.id, card.question, card.answers, card.correctAnswer)
     // })
-    // expect(game1.createCards()).to.have.all.keys('id', 'question', 'answers', 'correctAnswer')
-    // expect(game1.createCards()).to.eql()
+   
+    let game1;
+    let deck1;
+    //  = new Deck ([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4],allCards[5]]);
+    let allCards = prototypeSampleCards.map(card => {
+      return new Card(card.id, card.question, card.answers, card.correctAnswer)
+    })
+    let round1;
+    // let turn1;
+    // let turn2;
+    // let turn3;
+    // let turn4;
+    // let turn5;
+    // let turn6;
+    beforeEach(() => {
+      deck1 = new Deck ([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4],allCards[5]]);
+      round1 = new Round(deck1)
+      // console.log(round1)
+      game1 = new Game(round1)
+    })
+    
+    it('should be a function', () => {
+      expect(Game).to.be.a('function')
+    })
+    
+    it('should keep track of currentRound', () => {
+      // console.log(round1)
+      expect(game1.currentRound).to.equal(round1)
+    })
+    
+    it('should instantiate a new card', () => {
+    // expect(game1.createCards()).to.equal(allCards)
     // not sure what this test should look like, ask later
   })
 
-  it()
+  it('should put cards in deck', () => {
+    expect(game1.createDeck()).to.equal(deck1)
+  })
 })
 
 
