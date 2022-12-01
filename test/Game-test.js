@@ -4,6 +4,8 @@ const expect = chai.expect
 
 const data = require('../src/data-samples')
 const prototypeSampleCards = data.prototypeSampleData
+// const realData = require('../src/data');
+// const prototypeQuestions = realData.prototypeData;
 const Card = require('../src/Card')
 const Deck = require('../src/Deck')
 const Round = require('../src/Round')
@@ -14,6 +16,9 @@ describe('Game', () => {
   let allCards = prototypeSampleCards.map(card => {
     return new Card(card.id, card.question, card.answers, card.correctAnswer)
   })
+  // let allCards = prototypeQuestions.map(card => {
+  //   return new Card(card.id, card.question, card.answers, card.correctAnswer)
+  // })
   let game1;
   let deck1 = new Deck ([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4],allCards[5]]);
   let round1;
@@ -37,7 +42,17 @@ describe('Game', () => {
     // console.log(round1)
     expect(game1.currentRound).to.equal(round1)
   })
-  
+
+  it('should instantiate a new card', () => {
+    // let allCards = prototypeSampleCards.map(card => {
+    //   return new Card(card.id, card.question, card.answers, card.correctAnswer)
+    // })
+    // expect(game1.createCards()).to.have.all.keys('id', 'question', 'answers', 'correctAnswer')
+    // expect(game1.createCards()).to.eql()
+    // not sure what this test should look like, ask later
+  })
+
+  it()
 })
 
 
@@ -47,9 +62,9 @@ describe('Game', () => {
 
 
 /*Your Game class should meet these other requirements:
-Should keep track of the currentRound
+~~~~~~~~~~~~~~~~~~Should keep track of the currentRound
 start: method that starts everything
-Creates Cards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~Creates Cards
 Puts Cards in a Deck
 Creates a new Round using the Deck
 invokes printMessage to display the message in the CLI
