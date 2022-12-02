@@ -21,7 +21,7 @@ describe('Game', () => {
     expect(Game).to.be.a('function');
   });
     
-  it('should keep track of currentRound', () => {
+  it('should instantiate a new round', () => {
     deck1 = new Deck ([sampleCards]);
     game1 = new Game();
     round1 = new Round(deck1);
