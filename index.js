@@ -4,10 +4,10 @@
 
 console.log('Your project is running...'); 
 
-const Game = require('./src/Game')
+const Game = require('./src/Game');
 function startGame() {
-  let newGame = new Game()
-  return newGame.start()
+  let newGame = new Game();
+  return newGame.start();
 }
 
-startGame()
+startGame();
