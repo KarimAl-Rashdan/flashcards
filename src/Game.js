@@ -31,14 +31,16 @@ class Game {
   createRound() {
     let newDeck = this.createDeck()
     let newRound = new Round(newDeck)
-    this.newRound.takeTurn()
     return newRound
   }
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
-    round.endRound()
-    this.printQuestion(round)
+    if(round.turns === deck.length) {
+      round.endRound()
+    } else if (round.turns !== deck.length) {
+      this.printQuestion(round)
+    }
   }
   printQuestion(round) {
       util.main(round);
