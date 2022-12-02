@@ -69,3 +69,4 @@ npm test
 The test results will output to the terminal.
 
 
+<!-- https://media.giphy.com/media/YWK0frEOwzOMpMBDlT/giphy.gif -->

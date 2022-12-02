@@ -11,9 +11,6 @@ class Round {
   this.correctGuesses = []
   }
   returnCurrentCard() {
-    // if(this.turns === this.deck.length) {
-    //   this.endRound()
-    // } else 
     if(this.turns !== this.deck.length) {
       return this.currentCard
     }

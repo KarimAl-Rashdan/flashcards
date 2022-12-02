@@ -11,7 +11,6 @@ class Game {
     this.currentRound = this.createRound()
     this.currentCard = this.createCards();
     this.currentDeck = this.createDeck();
-    // this.currentRound
   }
   start() {
     this.createCards()
@@ -27,26 +26,19 @@ class Game {
   }
   createDeck() {
     let newDeck = new Deck(this.createCards())
-    // console.log(newDeck)
     return newDeck
   }
   createRound() {
     let newDeck = this.createDeck()
     let newRound = new Round(newDeck)
-    // newRound.takeTurn()
-    // this.printMessage(newDeck, this.currentRound)
-    // this.printQuestion(newRound)
+    this.newRound.takeTurn()
     return newRound
   }
-
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
-    // if(round.turns === deck.length) {
     round.endRound()
-    // } else if (round.turns !== deck.length) {
     this.printQuestion(round)
-    // }
   }
   printQuestion(round) {
       util.main(round);
