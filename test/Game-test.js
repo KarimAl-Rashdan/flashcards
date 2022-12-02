@@ -1,63 +1,72 @@
 /* eslint-disable */
 const chai = require('chai')
 const expect = chai.expect
-
-const data = require('../src/data-samples')
-const prototypeSampleCards = data.prototypeSampleData
-// const realData = require('../src/data');
-// const prototypeQuestions = realData.prototypeData;
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
+// const dataSample = require('../src/data-samples')
+// const prototypeSampleCards = dataSample.prototypeSampleData
 const Card = require('../src/Card')
 const Deck = require('../src/Deck')
 const Round = require('../src/Round')
 const Turn = require('../src/Turn')
 const Game = require('../src/Game')
 
-describe('Game', () => {
-  // let allCards = prototypeQuestions.map(card => {
-    //   return new Card(card.id, card.question, card.answers, card.correctAnswer)
-    // })
-   
-    let game1;
-    let deck1;
-    //  = new Deck ([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4],allCards[5]]);
-    let allCards = prototypeSampleCards.map(card => {
-      return new Card(card.id, card.question, card.answers, card.correctAnswer)
-    })
-    let round1;
-    // let turn1;
-    // let turn2;
-    // let turn3;
-    // let turn4;
-    // let turn5;
-    // let turn6;
-    beforeEach(() => {
-      deck1 = new Deck ([allCards[0], allCards[1], allCards[2], allCards[3], allCards[4],allCards[5]]);
-      round1 = new Round(deck1)
-      // console.log(round1)
-      game1 = new Game(round1)
-    })
-    
+describe('Game', () => { 
+  let game1;
+  let deck1;
+  let sampleCards = prototypeQuestions.map(card => {
+    return new Card(card.id, card.question, card.answers, card.correctAnswer)
+  })
+  
+  let round1;
+ 
     it('should be a function', () => {
       expect(Game).to.be.a('function')
     })
     
     it('should keep track of currentRound', () => {
-      // console.log(round1)
-      expect(game1.currentRound).to.equal(round1)
-    })
+      console.log("samplecards", sampleCards)
+    deck1 = new Deck ([sampleCards]);
+    game1 = new Game()
+    round1 = new Round(deck1)
+    console.log(game1.currentRound)
+    expect(game1.currentRound).to.be.an.instanceof(Round)
+  })
     
-    it('should instantiate a new card', () => {
-    // expect(game1.createCards()).to.equal(allCards)
+  it('should instantiate a new card', () => {
+    deck1 = new Deck ([sampleCards]);
+    game1 = new Game()
+    round1 = new Round(deck1)
+  
+    expect(game1.currentCard[0]).to.be.instanceof(Card)
+      // createCards()).to.equal(sampleCards)
     // not sure what this test should look like, ask later
+    // game1.createCards()
+    
+    // console.log(game1)
   })
 
-  it('should put cards in deck', () => {
-    // expect(game1.createDeck()).to.equal(deck1)
-    //testing isnt working because im noot working with full data array
+  it('should instantiate a new deck', () => {
+    deck1 = new Deck ([sampleCards]);
+    game1 = new Game()
+    round1 = new Round(deck1)
+  
+    expect(game1.currentDeck).to.be.instanceof(Deck)
+      // createCards()).to.equal(sampleCards)
+    // not sure what this test should look like, ask later
+    // game1.createCards()
+    
+    // console.log(game1)
   })
 
-  it('should create new round using the deck', () => {
-  //   expect(game1.createRound(deck1)).to.equal(round1)
+  // it('should put cards in deck', () => {
+  //   // expect(game1.createDeck()).to.equal(deck1)
+  //   //testing isnt working because im noot working with full data array
+  // })
+
+  // it('should create new round using the deck', () => {
+  // //   expect(game1.createRound(deck1)).to.equal(round1)
+  // // })
   // })
 })
 
